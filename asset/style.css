@@ -1,0 +1,182 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+  color: none;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+  max-height: 100%;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DMSans-reg";
+  /* background-color: #ffff; */
+  color: var(--black);
+  background: #EDF3F9;
+}
+
+/* 
+@media (min-width:2000px) {
+  body{
+    font-size: 18px;
+
+  }
+} */
+
+h1 {
+  font-family: "Bebas";
+  font-weight: 400;
+  font-size: 80px;
+  text-transform: uppercase;
+}
+
+/* h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 20px;
+} */
+
+@media ((max-width: 800px)) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+}
+
+@media ((max-width: 570px)) {
+}
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  /* colors */
+  --blue-light: #d1e3f1;
+  --blue: #3992cf;
+  --black: #050505;
+  --grey: #b8b8b8;
+}
+
+.container {
+  max-width: 1330px;
+  padding: 0 10px;
+  margin: 0 auto;
+  height: 100%;
+}
+section {
+  padding: 32px 0;
+  border-bottom: 1.5px solid var(--grey);
+}
+.section-title {
+  margin-bottom: 34px;
+}
+
+#horizontal-scroller,
+#horizontal-scroller2,
+#horizontal-scroller3,
+#horizontal-scroller4,
+#horizontal-scroller5 {
+  cursor: grab;
+}
+
+@media ((max-width: 1000px)) {
+  section {
+    padding: 16px 0;
+  }
+}
+
+@media ((max-width: 570px)) {
+  section {
+    padding: 8px 0;
+  }
+}
+
+/* colors */
