@@ -22,6 +22,7 @@
   padding: 14px 50px;
   transition: all 0.2s;
   border: none;
+  text-transform: uppercase;
 }
 .button-blue:hover {
   opacity: 0.8;
@@ -35,6 +36,7 @@
   transition: all 0.2s;
   color: var(--blue);
   border: 1.5px solid var(--blue);
+  text-transform: uppercase;
 }
 .button-white:hover {
   background-color: var(--blue);
@@ -50,6 +52,33 @@
   flex-direction: column;
   gap: 50px;
 }
+.title-another {
+  padding-top: 113px;
+  height: 500px;
+  background: url("./img/title-another.png") no-repeat;
+  background-position: 100% 100%;
+  background-size: cover;
+  border-bottom: none;
+}
+.title-another h1 {
+  padding: 80px 0 20px 0;
+}
+.breadcrump {
+  display: flex;
+}
+.breadcrump-item {
+  font-weight: 600;
+}
+.breadcrump-item a {
+  color: var(--black);
+}
+.breadcrump-item.active {
+  color: var(--blue);
+}
+.breadcrump-gap {
+  margin: 0 10px;
+}
+
 @media (max-width: 800px) {
   .section-title {
     gap: 40px;
@@ -57,6 +86,7 @@
   }
   .button-blue,
   .button-white {
+    font-size: 14px;
     padding: 7px 15px;
   }
 }
@@ -124,8 +154,11 @@
   color: var(--black);
   transition: all 0.2s;
 }
-.nav-item a:hover {
+.nav-item.active a {
   font-weight: 600;
+  color: var(--blue);
+}
+.nav-item a:hover {
   color: var(--blue);
 }
 .nav-bottom {
@@ -338,6 +371,11 @@
   grid-template-columns: 2fr 3fr;
   gap: 20px;
 }
+.underbanner-item--title {
+  color: var(--blue);
+  text-transform: uppercase;
+  font-family: "Bebas";
+}
 @media ((max-width: 800px)) {
   .underbanner-content--img,
   .underbanner-content--text {
@@ -374,8 +412,14 @@
   background: rgba(255, 255, 255, 0.3);
 }
 .services .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: var(--blue);
   margin-bottom: 30px;
+}
+.card-title .button-white {
+  padding: 4px 15px;
 }
 .services .card-text {
 }
@@ -397,6 +441,9 @@
   .services-subtitle {
     width: 100%;
     margin-bottom: 40px;
+  }
+  .card-title .button-white {
+    padding: 3px 12px;
   }
 }
 /* --------------------------------------------- partners --------------------------------------------- */
@@ -599,7 +646,7 @@
 /* --------------------------------------------- contactus --------------------------------------------- */
 .contactus {
   border-bottom: none;
- 
+
   background: linear-gradient(
       180deg,
       #edf3f9 0%,
@@ -674,6 +721,7 @@
 }
 .tab-content__element-buttons button {
   width: 100%;
+  font-size: 18px;
 }
 .tab-content__element-description {
   /* text-wrap: balance; */
@@ -682,7 +730,7 @@
 .tab-content__element-description a {
 }
 .tab-content__element .input-title {
-  color: var(--grey);
+  color: var(--blue);
 }
 @media ((max-width: 1000px)) {
   .contactus-block {
@@ -690,6 +738,10 @@
   }
 }
 @media ((max-width: 800px)) {
+  .tab-content__element-buttons {
+    flex-direction: column-reverse;
+    flex: none;
+  }
   .tab-dots {
     margin-bottom: 60px;
   }
@@ -834,7 +886,6 @@
 .question button {
   padding: 14px 20px;
 }
-/* --------------------------------------------- some --------------------------------------------- */
 
 /* --------------------------------------------- footer --------------------------------------------- */
 
@@ -902,24 +953,31 @@
 
 .footer-social a {
   display: flex;
+  align-items: center;
   padding: 15px;
   border: 1.5px solid var(--grey);
   border-radius: 15px;
   transition: all 0.2s;
 }
-.footer-social a:hover {
-  background-color: var(--blue);
-}
-.footer-social img {
+
+.footer-social .social-item div {
   margin-right: 10px;
+  font-size: 24px;
+  color: var(--grey);
+  transition: all 0.2s;
 }
+
 .footer-social span {
   color: var(--grey);
   transition: all 0.2s;
 }
-/* .footer-social span:hover {
+.footer-social a:hover div,
+.footer-social a:hover span {
   color: var(--blue);
-} */
+}
+.footer-social a:hover {
+  border-color: var(--blue);
+}
 .footer-item {
 }
 .footer-item .item-title {
@@ -1017,5 +1075,272 @@
   .gotop {
     color: #fff;
     width: 100%;
+  }
+}
+
+/* --------------------------------------------- map --------------------------------------------- */
+
+.map-contact {
+}
+.map-contact .container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.map {
+}
+.map img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.map-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-between;
+}
+.map-info__item {
+}
+.map-info .item-title {
+  margin-bottom: 5px;
+  font-family: "Bebas";
+  color: var(--blue);
+}
+.map-info .item-text,
+.map-info .item-text a {
+  color: var(--grey);
+  text-decoration: underline;
+  transition: all 0.2s;
+}
+.map-info .item-text a:hover {
+  color: var(--blue);
+}
+@media ((max-width: 800px)) {
+  .map-contact .container {
+    flex-direction: column;
+  }
+  .map-info .item-title {
+    font-size: 16px;
+  }
+}
+
+/* --------------------------------------------- fleetpage --------------------------------------------- */
+#fleet-page {
+}
+#fleet-page .fleet-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+#fleet-page .tab-dots {
+  justify-content: start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+#fleet-page .card {
+  display: none;
+}
+#fleet-page .card.active {
+  display: flex;
+}
+
+@media ((max-width: 800px)) {
+  #fleet-page .fleet-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------- partnerspage --------------------------------------------- */
+#partners-page {
+}
+#partners-page .partners {
+  background: transparent;
+}
+#partners-page .partners-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: visible;
+}
+#partners-page .partners .card {
+  width: 100%;
+  min-width: fit-content;
+}
+
+@media ((max-width: 800px)) {
+  #partners-page .partners-content {
+    grid-template-columns: 1fr;
+  }
+}
+/* --------------------------------------------- projectspage --------------------------------------------- */
+#projects-page {
+}
+#projects-page .tab-dots {
+  justify-content: start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+#projects-page .projects-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+#projects-page .projects .card {
+  display: none;
+}
+#projects-page .projects .card.active {
+  display: flex;
+}
+@media ((max-width: 800px)) {
+  #projects-page .projects-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------- servicespage --------------------------------------------- */
+#services-page {
+}
+#services-page .services .services-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  overflow: visible;
+}
+#services-page .services .card {
+  min-width: fit-content;
+}
+#services-page {
+}
+#services-page {
+}
+@media ((max-width: 800px)) {
+  #services-page .services .services-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --------------------------------------------- errorpage --------------------------------------------- */
+
+.error {
+  padding-top: 113px;
+  min-height: 90vh;
+  background: url("./img/conactus-bg.svg"),
+    linear-gradient(
+      180deg,
+      #1c72c7 0%,
+      rgba(16, 88, 160, 1) 44.92%,
+      rgba(0, 91, 182, 0.8) 79.51%,
+      #1666b6 100%
+    );
+  background-position: 100% 100%;
+  background-size: cover;
+}
+.error .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error-code {
+  font-family: "Bebas";
+  font-size: 150px;
+
+  color: var(--blue);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.error-subtitle {
+  /* font-size: 14px; */
+  font-weight: 600;
+  padding: 20px 0 60px 0;
+}
+@media ((max-width: 800px)) {
+  .error-code {
+    font-size: 70px;
+  }
+  .error button,
+  .error a {
+    width: 100%;
+  }
+}
+/* --------------------------------------------- aboutpage --------------------------------------------- */
+
+#about-page {
+}
+#about-page .underbanner {
+  border: none;
+}
+.about .block-img {
+  display: flex;
+  overflow: auto;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+.about .card-img {
+  min-width: 480px;
+  
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-content {
+  width: 80%;
+}
+.about .cards-block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.about .card {
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(184, 184, 184, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+}
+.about .card-text--only {
+  font-weight: 700;
+}
+
+.about .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--blue);
+  margin-bottom: 30px;
+}
+.about .cards-text {
+}
+
+@media ((max-width: 800px)) {
+  .about-content {
+    width: 100%;
+  }
+  .about .block-img {
+    gap: 30px;
+  }
+  .about .card-img {
+    min-width: 290px;
+  }
+
+  .about .cards-block {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .about .card-text--only:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  .about .card {
+    padding: 15px;
+  }
+
+  .about .card-title {
+    margin-bottom: 20px;
+  }
+  .about .cards-text {
   }
 }

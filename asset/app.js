@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const mainPage = document.querySelector("#main-page");
   // burger ----------------------------------------------------------------------------------------
   const burger = document?.querySelector("[data-burger]");
   const nav = document?.querySelector("[data-nav]");
@@ -6,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const header = document?.querySelector(".header");
   const headerHeight = header.offsetHeight;
-  console.log(headerHeight);
   document
     .querySelector(":root")
     .style.setProperty("--header-height", `${headerHeight}px`);
@@ -26,34 +26,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // sliders ----------------------------------------------------------------------------------------
-  const swiperFleet = new Swiper(".swiper-fleet", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: ".swiper-fleet-button-next",
-      prevEl: ".swiper-fleet-button-prev",
-    },
-    breakpoints: {
-      800: {
-        slidesPerView: 2,
-        spaceBetween: 20,
+  if (mainPage) {
+    const swiperFleet = new Swiper(".swiper-fleet", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-fleet-button-next",
+        prevEl: ".swiper-fleet-button-prev",
       },
-    },
-  });
-  const swiperprojects = new Swiper(".swiper-projects", {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: ".swiper-projects-button-next",
-      prevEl: ".swiper-projects-button-prev",
-    },
-    breakpoints: {
-      800: {
-        slidesPerView: 2,
-        spaceBetween: 20,
+      breakpoints: {
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
       },
-    },
-  });
+    });
+    const swiperprojects = new Swiper(".swiper-projects", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-projects-button-next",
+        prevEl: ".swiper-projects-button-prev",
+      },
+      breakpoints: {
+        800: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
+
   // clear form ----------------------------------------------------------------------------------------
   const resetForm = () => {
     const resetBut = document.querySelector(".skip-filling");
@@ -95,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.onload = function () {
     // let scr1 = $("#horizontal-scroller");
     mouseEvent($("#horizontal-scroller"));
-    // mouseEvent($("#horizontal-scroller2"));
+    mouseEvent($("#horizontal-scroller2"));
     // mouseEvent($("#horizontal-scroller3"));
     // mouseEvent($("#horizontal-scroller4"));
     // mouseEvent($("#horizontal-scroller5"));
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         titleNode.innerHTML = `
           <div>${title}</div>
-          <img src='./asset/img/icons/footer-arrow.svg'> 
+          <img src='/asset/img/icons/footer-arrow.svg'> 
         `;
         blockNode.append(block);
 
@@ -194,8 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
           document.querySelector(".footer-links")
         )
       );
-      const blockUnderFooter = document.querySelector('.footer-under')
-      blockUnderFooter.querySelector('.gotop').innerHTML = 'Move up page'
+      const blockUnderFooter = document.querySelector(".footer-under");
+      blockUnderFooter.querySelector(".gotop").innerHTML = "Move up page";
       containerMob.append(mobBlock);
       containerMob.append(blockUnderFooter);
 
@@ -215,4 +218,71 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth",
     });
   });
+  // переключатель контента fleet page ----------------------------------------------------------------------------------------
+
+  const sectionFleet = document.querySelector("#fleet-page");
+  if (sectionFleet) {
+    const fleetDots = sectionFleet.querySelectorAll(".tab-dot");
+    const fleetContents = sectionFleet.querySelectorAll(".card");
+
+    // newsContents.forEach((item) => logicNewsPage(item));
+
+    fleetDots.forEach((item) =>
+      item.addEventListener("click", () => {
+        toggleProgressContent();
+      })
+    );
+    toggleProgressContent();
+    function toggleProgressContent() {
+      fleetDots.forEach((dotNode) => {
+        if (dotNode.className.includes("active")) {
+          fleetContents.forEach((contentNode) => {
+            contentNode.classList.remove("active");
+            if (
+              contentNode.attributes["data-switch"].value ===
+              dotNode.attributes["key-switch"].value
+            ) {
+              contentNode.classList.add("active");
+            }
+          });
+          console.log(dotNode.attributes["key-switch"].value);
+        }
+      });
+    }
+  }
+
+  // переключатель контента projects page ----------------------------------------------------------------------------------------
+  const sectionProjects = document.querySelector("#projects-page");
+  if (sectionProjects) {
+    const projectsDots = sectionProjects.querySelectorAll(".tab-dot");
+    const projectsContents = sectionProjects.querySelectorAll(".card");
+
+    // newsContents.forEach((item) => logicNewsPage(item));
+
+    projectsDots.forEach((item) =>
+      item.addEventListener("click", () => {
+        toggleProgressContent();
+      })
+    );
+    toggleProgressContent();
+    function toggleProgressContent() {
+      projectsDots.forEach((dotNode) => {
+        if (dotNode.className.includes("active")) {
+          projectsContents.forEach((contentNode) => {
+            contentNode.classList.remove("active");
+            if (dotNode.attributes["key-switch"].value === "all") {
+              contentNode.classList.add("active");
+              return;
+            }
+            if (
+              contentNode.attributes["data-switch"].value ===
+              dotNode.attributes["key-switch"].value
+            ) {
+              contentNode.classList.add("active");
+            }
+          });
+        }
+      });
+    }
+  }
 });

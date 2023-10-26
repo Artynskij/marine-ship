@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="./asset/fonts/custom-icons/custom-icons.css" />
     <link rel="stylesheet" href="./asset/fonts/font.css" />
     <link rel="stylesheet" href="./asset/style.css" />
     <link rel="stylesheet" href="./asset/main.css" />
@@ -91,13 +92,13 @@
             </div>
           </div>
           <div class="underbanner-content--text">
-            <div class="underbanner-item">[What are we proud of?]</div>
+            <div class="underbanner-item underbanner-item--title">[What are we proud of?]</div>
             <div class="underbanner-item">
               We have successfully executed dozens of major projects supporting
               maritime operations in the Northern Caspian, delivering oversize
               cargo, providing agency services, and fleet management
             </div>
-            <div class="underbanner-item">[What are we proud of?]</div>
+            <div class="underbanner-item underbanner-item--title">[What are we proud of?]</div>
             <div class="underbanner-item">
               We offer a fleet of over 40 vessels of various types that perform
               a wide range of tasks: barges, tugs for transporting oversize
@@ -127,7 +128,7 @@
           </div>
           <div class="services-content">
             <div class="card">
-              <div class="card-title">[01]</div>
+              <div class="card-title">[01] <button class="button-white">new</button></div>
               <div class="card-text">
                 Fleet technical management with the engagement of local
                 companies for vessel maintenance and repair
@@ -348,11 +349,11 @@
         <div class="container">
           <div class="contactus-block">
             <h1>Contact us today!</h1>
-            <div class="tab-dots">
+            <!-- <div class="tab-dots">
               <div class="tab-dot button-white active">Main forms</div>
               <div class="tab-dot button-white">Request details</div>
               <div class="tab-dot button-white">Delivery details</div>
-            </div>
+            </div> -->
             <div class="tab-contents">
               <div class="tab-content">
                 <div class="tab-content__element">
@@ -384,6 +385,38 @@
                   wishes.
                 </div>
               </div>
+              
+              <div class="tab-content">
+                <div class="tab-content__element">
+                  <div class="input-title">[Name] *</div>
+                  <input placeholder="Type your name" type="text" />
+                </div>
+                <div class="tab-content__element">
+                  <div class="input-title">[E-mail] *</div>
+                  <input placeholder="Type your e-mail" type="text" />
+                </div>
+                <div class="tab-content__element">
+                  <div class="input-title">[Your message]</div>
+                  <textarea placeholder="Type your message to us..."></textarea>
+                </div>
+                <div class="tab-content__element-buttons">
+                  <button class="button-white skip-filling">
+                    Skip filling
+                  </button>
+                  <button class="button-blue continue-filling">
+                    Continue filling
+                  </button>
+                </div>
+                <div class="tab-content__element-description">
+                  You can skip filling out the forms from
+                  <span><a href="#">Request Details</a></span>
+                  and
+                  <span><a href="#">Delivery Details</a></span
+                  >. Then we will contact and ask you in detail about your
+                  wishes.
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -561,13 +594,13 @@
             <div class="footer-item footer-social">
               <div class="social-item">
                 <a href="#Whatsapp"
-                  ><img src="./asset/img/icons/whatsup.svg" alt="" />
+                  ><div class="icon-whatsapp"></div>
                   <span>Whatsapp</span></a
                 >
               </div>
               <div class="social-item">
                 <a href="#Viber">
-                  <img src="./asset/img/icons/viber.svg" alt="" />
+                  <div class="icon-viber"></div>
                   <span>Viber</span>
                 </a>
               </div>
@@ -575,9 +608,11 @@
           </div>
 
           <div class="footer-item footer-under">
-            <div class="under-text">Silver Shipping Caspian. ©2023. All rights reserved.</div>
+            <div class="under-text">
+              Silver Shipping Caspian. ©2023. All rights reserved.
+            </div>
             <button class="gotop">
-              <img src="./asset/img/icons/slider-but-next.svg" alt="">
+              <img src="./asset/img/icons/slider-but-next.svg" alt="" />
             </button>
           </div>
         </div>
