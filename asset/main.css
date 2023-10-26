@@ -338,7 +338,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   max-width: 50%;
 }
 .banner-content h1 {
@@ -365,6 +365,7 @@
 .underbanner-content--img div {
   width: fit-content;
   height: fit-content;
+  margin-bottom: 40px;
 }
 .underbanner-content--text {
   display: grid;
@@ -1281,7 +1282,6 @@
 }
 .about .card-img {
   min-width: 480px;
-  
 }
 .card-img img {
   width: 100%;
